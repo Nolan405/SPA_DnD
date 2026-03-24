@@ -1,0 +1,178 @@
+/* Importation d'une police typée Fantasy */
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&family=Spectral:wght@400;700&display=swap');
+
+:root {
+    --dnd-red: #930c10;
+    --dnd-gold: #c8aa6e;
+    --parchment: #f4e1d2;
+    --deep-black: #1a1a1a;
+}
+
+body {
+    margin: 0;
+    background-color: var(--deep-black);
+    font-family: 'Spectral', serif;
+}
+
+/* Style de la barre de navigation */
+nav {
+    background: linear-gradient(to bottom, #2a2a2a, #1a1a1a);
+    border-bottom: 3px solid var(--dnd-gold);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+nav li {
+    position: relative;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--dnd-gold);
+    font-family: 'MedievalSharp', cursive;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    padding: 5px 10px;
+}
+
+/* Effet au survol */
+nav a:hover {
+    color: #fff;
+    text-shadow: 0 0 8px var(--dnd-red), 0 0 12px var(--dnd-red);
+}
+
+/* Petit indicateur sous le lien actif/survolé */
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 50%;
+    background-color: var(--dnd-red);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+nav a:hover::after {
+    width: 80%;
+}
+
+/* Style pour la zone de contenu principale */
+#app {
+    padding: 20px;
+    color: var(--parchment);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Titre avec une bordure décorative */
+.dnd-title {
+    color: var(--dnd-red);
+    font-family: 'MedievalSharp', cursive;
+    font-size: 2.5rem;
+    border-bottom: 2px solid var(--dnd-gold);
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+/* Texte principal avec une lettrine (optionnel) */
+.dnd-text {
+    line-height: 1.6;
+    font-size: 1.1rem;
+    color: #e0d0b0; /* Un blanc cassé plus doux que le blanc pur */
+    max-width: 800px;
+}
+
+/* Conteneur pour simuler un parchemin ou un cadre de grimoire */
+.parchment-container {
+    background: rgba(40, 40, 40, 0.8);
+    padding: 40px;
+    border: 2px solid var(--dnd-gold);
+    border-radius: 5px;
+    box-shadow: inset 0 0 15px rgba(0,0,0,0.5);
+    margin-top: 30px;
+}
+
+/* Grille de mise en page */
+.races-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    list-style: none;
+    padding: 20px 0;
+}
+
+/* Style de chaque carte de race */
+.race-card {
+    background: linear-gradient(135deg, #3a3a3a, #222);
+    border: 1px solid var(--dnd-gold);
+    border-radius: 4px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+.race-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(200, 170, 110, 0.3);
+    border-color: #fff;
+}
+
+/* Style du lien à l'intérieur de la carte */
+.race-card a {
+    display: block;
+    padding: 20px;
+    text-decoration: none;
+    color: var(--dnd-gold);
+    font-family: 'MedievalSharp', cursive;
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+.race-card a:hover {
+    color: #fff;
+}
+
+.scroll-icon {
+    display: block;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    filter: sepia(1) saturate(2);
+}
+
+.back-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: var(--dnd-red);
+    color: white !important; /* Force le blanc pour le contraste */
+    text-decoration: none;
+    font-family: 'MedievalSharp', cursive;
+    border: 1px solid var(--dnd-gold);
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 0px #5a070a; /* Effet de profondeur */
+}
+
+.back-button:hover {
+    background-color: #b01015;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0px #5a070a;
+}
+
+.back-button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0px #5a070a;
+}

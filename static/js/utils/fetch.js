@@ -8,13 +8,26 @@ async function Races() {
     getData(url, render_races);
 }
 
-
-async function ArticleShow() {
+async function RaceShow() {
     const pathParts = window.location.hash.split('/'); 
     const id = pathParts[2]; 
     if (id) {
-        const url = `/articles/${id}`;
-        getData(url, render_single_article);
+        const url = `/races/${id}`;
+        getData(url, render_single_race);
+    }
+}
+
+async function classes() {
+    const url = "/classes";
+    getData(url, render_classes);
+}
+
+async function classeShow() {
+    const pathParts = window.location.hash.split('/'); 
+    const id = pathParts[2]; 
+    if (id) {
+        const url = `/classes/${id}`;
+        getData(url, render_single_classe);
     }
 }
 

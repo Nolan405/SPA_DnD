@@ -3,22 +3,23 @@ async function render_races(data) {
     app.innerHTML = "";
 
     const title = document.createElement('h1');
-    title.textContent = "Races";
+    title.textContent = "Choisir une Race";
+    title.className = "dnd-title";
     app.appendChild(title);
 
-    let ul = document.createElement('ul');
-    ul.className = "races-list";
+    const ul = document.createElement('ul');
+    ul.className = "races-grid";
 
     data.forEach(element => {
-        let li = document.createElement('li');
-        let a = document.createElement('a')
+        const li = document.createElement('li');
+        li.className = "race-card";
 
-        li.className = "race-item";
+        const a = document.createElement('a');
         a.href = `#/races/${element.id}/`;
-        a.textContent = element.name;
+        a.innerHTML = `<span class="scroll-icon">📜</span> ${element.name}`;
 
         li.appendChild(a);
         ul.appendChild(li);
     });
-    app.appendChild(ul)
+    app.appendChild(ul);
 }
