@@ -16,7 +16,7 @@ async function render_single_equipment(data) {
     h1.classList.add('dnd-title');
 
     const p1 = document.createElement('p');
-    p1.textContent = "type : " + data.type; 
+    p1.textContent = "Type : " + data.type; 
     p1.classList.add('dnd-text');
 
     const p2 = document.createElement('p');

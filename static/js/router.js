@@ -1,7 +1,7 @@
 const routes = {
     '#/'                   : Home,
-    // '#/characters/'        : Characters,
-    // '#/characters/:id/'    : CharacterShow,
+    '#/characters/'        : Characters,
+    '#/characters/:id/'    : CharacterShow,
     '#/classes/'           : Classes,
     '#/classes/:id/'       : ClasseShow,
     '#/equipments/'        : Equipments,
@@ -21,6 +21,9 @@ const router = async () => {
         return;
     } else if (path.startsWith('#/equipments/') && path.split('/').length >= 4) {
         EquipmentShow();
+        return;
+    } else if (path.startsWith('#/characters/') && path.split('/').length >= 4) {
+        CharacterShow();
         return;
     }
 

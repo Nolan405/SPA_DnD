@@ -45,6 +45,20 @@ async function EquipmentShow() {
     }
 }
 
+async function Characters() {
+    const url = "/characters";
+    getData(url, render_characters);
+}
+
+async function CharacterShow() {
+    const pathParts = window.location.hash.split('/'); 
+    const id = pathParts[2]; 
+    if (id) {
+        const url = `/characters/${id}`;
+        getData(url, render_single_character);
+    }
+}
+
 async function getData(url, callback) {
     let response = await fetch(ENDPOINT + url);
     if (!response.ok) {
