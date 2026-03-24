@@ -17,17 +17,31 @@ async function RaceShow() {
     }
 }
 
-async function classes() {
+async function Classes() {
     const url = "/classes";
     getData(url, render_classes);
 }
 
-async function classeShow() {
+async function ClasseShow() {
     const pathParts = window.location.hash.split('/'); 
     const id = pathParts[2]; 
     if (id) {
         const url = `/classes/${id}`;
         getData(url, render_single_classe);
+    }
+}
+
+async function Equipments() {
+    const url = "/equipments";
+    getData(url, render_equipments);
+}
+
+async function EquipmentShow() {
+    const pathParts = window.location.hash.split('/'); 
+    const id = pathParts[2]; 
+    if (id) {
+        const url = `/equipments/${id}`;
+        getData(url, render_single_equipment);
     }
 }
 

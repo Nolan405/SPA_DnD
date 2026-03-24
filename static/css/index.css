@@ -69,6 +69,18 @@ nav a:hover::after {
     width: 80%;
 }
 
+/* Style pour le lien de la page active */
+nav a.active {
+    color: #fff;
+    text-shadow: 0 0 8px var(--dnd-red);
+}
+
+/* On force l'affichage de la barre rouge pour la classe active */
+nav a.active::after {
+    width: 80%;
+    background-color: var(--dnd-gold); /* On peut changer la couleur pour différencier du survol */
+}
+
 /* Style pour la zone de contenu principale */
 #app {
     padding: 20px;
