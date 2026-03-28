@@ -9,6 +9,7 @@ import { render_classes } from '../views/classes.js';
 import { render_single_classe } from '../views/classeShow.js';
 import { render_equipments } from '../views/equipments.js';
 import { render_single_equipment } from '../views/equipmentShow.js';
+import { render_favorites } from '../views/favorites.js';
 
 export async function Home() {
     const url = "/introduction";
@@ -71,17 +72,34 @@ export async function CharacterShow() {
     }
 }
 
+export async function Favorites() {
+    const urls = ["/characters", "/classes", "/races", "/equipments"];
+    getData(urls, render_favorites);
+}
+
 export async function getData(url, render) {
-    let response = await fetch(ENDPOINT + url);
-    if (!response.ok) {
-        throw new Error(response.status);
-    }
-    const text = await response.text();
-    try {
-        const data = JSON.parse(text);
-        console.log(data)
-        render(data);
-    } catch (e) {
-        render(text);
+    let finalData;
+    if (Array.isArray(url)) {
+        const responses = await Promise.all(url.map(unUrl => fetch(ENDPOINT + unUrl)));
+        const allData = await Promise.all(responses.map(res => res.json()));
+        const finalData = {
+            "characters": allData[0],
+            "classes":    allData[1],
+            "races":      allData[2],
+            "equipments": allData[3]
+        };
+        render(finalData);  
+    } else {
+        let response = await fetch(ENDPOINT + url);
+        if (!response.ok) {
+            throw new Error(response.status);
+        }
+        try {
+            finalData = await response.json();
+            console.log(finalData)
+            render(finalData);
+        } catch (e) {
+            render(finalData);
+        }
     }
 }
