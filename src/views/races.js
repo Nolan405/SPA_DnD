@@ -14,10 +14,9 @@ export async function render_races(data) {
 
     data.forEach(element => {
         const race = new Race (
-            element.id, 
-            element.name, 
-            element.hit_die, 
-            element.primary_ability
+            element.id,
+            element.name,
+            element.description
         );
        race.renderGenericCard(ul);
     });

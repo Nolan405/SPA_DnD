@@ -13,14 +13,14 @@ export async function render_equipments(data) {
     ul.className = "races-grid";
 
     data.forEach(element => {
-        const race = new Equipment (
+        const equipment = new Equipment (
             element.id, 
             element.name, 
             element.type, 
             element.damage,
             element.weight
         );
-       race.renderGenericCard(ul);
+       equipment.renderGenericCard(ul);
     });
     app.appendChild(ul);
 }

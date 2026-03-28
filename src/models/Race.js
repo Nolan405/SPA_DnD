@@ -21,4 +21,21 @@ export class Race {
         li.appendChild(a);
         ul.appendChild(li);
     }
+
+    renderDetailCard(app) {
+        const section = document.createElement('section');
+        section.classList.add('parchment-container');
+
+        const h1 = document.createElement('h1');
+        h1.textContent = this.name;
+        h1.classList.add('dnd-title');
+
+        const p = document.createElement('p');
+        p.textContent = this.description; 
+        p.classList.add('dnd-text');
+
+        section.appendChild(h1);
+        section.appendChild(p);
+        app.appendChild(section);
+    }
 }
