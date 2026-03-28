@@ -188,3 +188,81 @@ nav a.active::after {
     transform: translateY(2px);
     box-shadow: 0 2px 0px #5a070a;
 }
+
+/* Container pour aligner les boutons à côté du titre ou en dessous */
+.fav-actions {
+    display: inline-flex;
+    gap: 10px;
+    margin-left: 20px;
+    vertical-align: middle;
+    align-items: center;
+}
+
+/* Style de base des boutons DnD */
+.dnd-button {
+    background: #2c241e; /* Fond sombre cuir */
+    color: var(--dnd-gold);    /* Texte doré */
+    border: 2px solid var(--dnd-gold);
+    padding: 8px 15px;
+    height: 32px;
+    font-family: 'MedievalSharp', cursive, serif; /* Ou ta police actuelle */
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    display: inline-flex;
+    align-items: center;      /* Centre le texte verticalement */
+    justify-content: center;
+    vertical-align: bottom;
+}
+
+/* Bouton Ajouter (Doré) */
+.btn-add {
+    border-color: var(--dnd-gold);
+}
+
+.btn-add:hover {
+    background: var(--dnd-gold);
+    color: #2c241e;
+    box-shadow: 0 0 10px var(--dnd-gold);
+}
+
+/* Bouton Supprimer (Rouge sang) */
+.btn-remove {
+    border-color: var(--dnd-red);
+    color: var(--dnd-red);
+}
+
+.btn-remove:hover {
+    background: var(--dnd-red);
+    color: #ffffff;
+    box-shadow: 0 0 10px var(--dnd-red);
+}
+
+/* Effet quand on clique */
+.dnd-button:active {
+    transform: translateY(2px);
+}
+
+/* Style générique pour un bouton désactivé dans ton thème DnD */
+button.dnd-button.btn-add:disabled, 
+button.dnd-button.btn-remove:disabled,
+.fav-actions button:disabled {
+    background-color: #1a1512 !important;
+    color: #555555 !important;
+    border-color: #444444 !important;
+    cursor: not-allowed !important;
+    opacity: 0.6 !important;
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+/* On s'assure que le hover ne réactive rien */
+.dnd-button:disabled:hover,
+.dnd-button.btn-disabled:hover {
+    background: #1a1512 !important;
+    color: #555555 !important;
+    box-shadow: none !important;
+}

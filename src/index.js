@@ -7,7 +7,8 @@ import {
     Equipments, 
     EquipmentShow, 
     Races, 
-    RaceShow 
+    RaceShow,
+    Favorites
 } from './utils/fetch.js';
 
 const routes = {
@@ -19,7 +20,8 @@ const routes = {
     '#/equipments/'        : Equipments,
     '#/equipments/:id/'    : EquipmentShow,
     '#/races/'             : Races,
-    '#/races/:id/'         : RaceShow
+    '#/races/:id/'         : RaceShow,
+    '#/favorites/'         : Favorites
 }
 
 const router = async () => {
