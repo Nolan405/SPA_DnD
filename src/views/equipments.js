@@ -1,3 +1,5 @@
+import { Equipment } from "../models/Equipment.js";
+
 export async function render_equipments(data) {
     const app = document.querySelector('#app');
     app.innerHTML = "";
@@ -11,15 +13,14 @@ export async function render_equipments(data) {
     ul.className = "races-grid";
 
     data.forEach(element => {
-        const li = document.createElement('li');
-        li.className = "race-card";
-
-        const a = document.createElement('a');
-        a.href = `#/equipments/${element.id}/`;
-        a.innerHTML = `<span class="scroll-icon">📜</span> ${element.name}`;
-
-        li.appendChild(a);
-        ul.appendChild(li);
+        const race = new Equipment (
+            element.id, 
+            element.name, 
+            element.type, 
+            element.damage,
+            element.weight
+        );
+       race.renderGenericCard(ul);
     });
     app.appendChild(ul);
 }

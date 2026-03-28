@@ -16,8 +16,12 @@ export class Character {
     get getId() { return this.id; }
     get getName() { return this.name; }
     get getLevel() { return this.level; }
+    get getIdRace() { return this.idRace; }
+    get getIdClasse() { return this.idClasse; }
+    get getLstIdEquipments() { return this.lstIdEquipments; }
     get getStats() { return this.stats; }
     get getRating() { return this.rating; }
+    get getVotes() { return this.votes; }
     get getImage() { return this.image; }
 
     renderGenericCard(ul) {
@@ -27,7 +31,7 @@ export class Character {
         const a = document.createElement('a');
         a.href = `#/characters/${this.id}/`;
         a.innerHTML = `
-            <img src="${this.image}" alt="${this.name}" loading="lazy" width="50">
+            <img src="${this.image}" alt="" width="50">
             <span class="scroll-icon">📜</span> ${this.name}
         `;
 

@@ -1,3 +1,5 @@
+import { Classe } from "../models/Classe.js";
+
 export async function render_classes(data) {
     const app = document.querySelector('#app');
     app.innerHTML = "";
@@ -11,15 +13,13 @@ export async function render_classes(data) {
     ul.className = "races-grid";
 
     data.forEach(element => {
-        const li = document.createElement('li');
-        li.className = "race-card";
-
-        const a = document.createElement('a');
-        a.href = `#/classes/${element.id}/`;
-        a.innerHTML = `<span class="scroll-icon">📜</span> ${element.name}`;
-
-        li.appendChild(a);
-        ul.appendChild(li);
+        const classe = new Classe (
+            element.id, 
+            element.name, 
+            element.hit_die, 
+            element.primary_ability
+        );
+       classe.renderGenericCard(ul);
     });
     app.appendChild(ul);
 }
