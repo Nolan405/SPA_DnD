@@ -1,9 +1,9 @@
-async function render_equipments(data) {
+export async function render_races(data) {
     const app = document.querySelector('#app');
     app.innerHTML = "";
 
     const title = document.createElement('h1');
-    title.textContent = "Choisir un Équipement";
+    title.textContent = "Choisir une Race";
     title.className = "dnd-title";
     app.appendChild(title);
 
@@ -15,7 +15,7 @@ async function render_equipments(data) {
         li.className = "race-card";
 
         const a = document.createElement('a');
-        a.href = `#/equipments/${element.id}/`;
+        a.href = `#/races/${element.id}/`;
         a.innerHTML = `<span class="scroll-icon">📜</span> ${element.name}`;
 
         li.appendChild(a);

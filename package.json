@@ -1,0 +1,25 @@
+{
+  "name": "spa_dnd",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nolan405/SPA_DnD.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nolan405/SPA_DnD/issues"
+  },
+  "homepage": "https://github.com/Nolan405/SPA_DnD#readme",
+  "devDependencies": {
+    "webpack": "^5.105.4",
+    "webpack-cli": "^7.0.2"
+  }
+}
