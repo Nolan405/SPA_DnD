@@ -1,3 +1,5 @@
+import { Race } from "../models/Race.js";
+
 export async function render_races(data) {
     const app = document.querySelector('#app');
     app.innerHTML = "";
@@ -11,15 +13,12 @@ export async function render_races(data) {
     ul.className = "races-grid";
 
     data.forEach(element => {
-        const li = document.createElement('li');
-        li.className = "race-card";
-
-        const a = document.createElement('a');
-        a.href = `#/races/${element.id}/`;
-        a.innerHTML = `<span class="scroll-icon">📜</span> ${element.name}`;
-
-        li.appendChild(a);
-        ul.appendChild(li);
+        const race = new Race (
+            element.id,
+            element.name,
+            element.description
+        );
+       race.renderGenericCard(ul);
     });
     app.appendChild(ul);
 }

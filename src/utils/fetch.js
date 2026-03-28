@@ -71,7 +71,7 @@ export async function CharacterShow() {
     }
 }
 
-export async function getData(url, callback) {
+export async function getData(url, render) {
     let response = await fetch(ENDPOINT + url);
     if (!response.ok) {
         throw new Error(response.status);
@@ -80,8 +80,8 @@ export async function getData(url, callback) {
     try {
         const data = JSON.parse(text);
         console.log(data)
-        callback(data);
+        render(data);
     } catch (e) {
-        callback(text);
+        render(text);
     }
 }
