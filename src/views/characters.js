@@ -1,10 +1,10 @@
 import { Character } from '../models/Character.js';
 
-async function render_characters(data) {
+export async function render_characters(data) {
     const app = document.querySelector('#app');
     app.innerHTML = "";
 
-        const title = document.createElement('h1');
+    const title = document.createElement('h1');
     title.textContent = "Choisir un Personnage";
     title.className = "dnd-title";
     app.appendChild(title);

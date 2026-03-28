@@ -1,3 +1,15 @@
+import { 
+    Home, 
+    Characters, 
+    CharacterShow, 
+    Classes, 
+    ClasseShow, 
+    Equipments, 
+    EquipmentShow, 
+    Races, 
+    RaceShow 
+} from './utils/fetch.js';
+
 const routes = {
     '#/'                   : Home,
     '#/characters/'        : Characters,

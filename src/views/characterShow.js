@@ -30,7 +30,7 @@ function generateTable(data) {
     return table;
 }
 
-async function render_single_character(data) {
+export async function render_single_character(data) {
     const app = document.querySelector('#app');
     app.innerHTML = "";
 
@@ -66,7 +66,7 @@ async function render_single_character(data) {
     const p5 = document.createElement('p');
     p5.textContent = "Stats : "; 
     p5.classList.add('dnd-text');
-    table = generateTable(data.stats);
+    const table = generateTable(data.stats);
 
     const p6 = document.createElement('p');
     p6.textContent = "Notation : " + data.rating + "/5"; 
