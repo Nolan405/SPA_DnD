@@ -11,23 +11,19 @@ const routes = {
 }
 
 const router = async () => {
-    const path = location.hash;
-    
-    if (path.startsWith('#/races/') && path.split('/').length >= 4) {
-        RaceShow();
-        return;
-    } else if (path.startsWith('#/classes/') && path.split('/').length >= 4) {
-        ClasseShow();
-        return;
-    } else if (path.startsWith('#/equipments/') && path.split('/').length >= 4) {
-        EquipmentShow();
-        return;
-    } else if (path.startsWith('#/characters/') && path.split('/').length >= 4) {
-        CharacterShow();
-        return;
-    }
+    const hash = location.hash || '#/';
+    let view = routes[hash];
 
-    const view = routes[path];
+    // Pour passer de '#/equipments/1/' à '#/equipments/:id/'
+    if (!view) {
+        const urlSep = hash.split('/');
+
+        if (urlSep.length >= 3 && urlSep[2] !== "") {
+            const resource = urlSep[1];
+            const newRoute = `#/${resource}/:id/`; 
+            view = routes[newRoute];
+        }
+    }
     if (view) {
         view();
     } 

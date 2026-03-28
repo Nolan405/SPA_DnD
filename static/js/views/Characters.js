@@ -1,8 +1,10 @@
+import { Character } from '../models/Character.js';
+
 async function render_characters(data) {
     const app = document.querySelector('#app');
     app.innerHTML = "";
 
-    const title = document.createElement('h1');
+        const title = document.createElement('h1');
     title.textContent = "Choisir un Personnage";
     title.className = "dnd-title";
     app.appendChild(title);
@@ -11,15 +13,19 @@ async function render_characters(data) {
     ul.className = "races-grid";
 
     data.forEach(element => {
-        const li = document.createElement('li');
-        li.className = "race-card";
-
-        const a = document.createElement('a');
-        a.href = `#/characters/${element.id}/`;
-        a.innerHTML = `<span class="scroll-icon">📜</span> ${element.name}`;
-
-        li.appendChild(a);
-        ul.appendChild(li);
+        const character = new Character(
+            element.id, 
+            element.name, 
+            element.level, 
+            element.race_id,
+            element.class_id, 
+            element.equipment_ids, 
+            element.stats, 
+            element.rating, 
+            element.votes, 
+            element.image
+        );
+       character.renderGenericCard(ul);
     });
     app.appendChild(ul);
 }
