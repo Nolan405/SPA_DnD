@@ -2,26 +2,31 @@ const routes = {
     '#/'                   : Home,
     '#/characters/'        : Characters,
     '#/characters/:id/'    : CharacterShow,
-    '#/classes/'           : classes,
-    '#/classes/:id/'       : classeShow,
-    '#/equipements/'       : Equipements,
-    '#/equipements/:id/'   : EquipementShow,
+    '#/classes/'           : Classes,
+    '#/classes/:id/'       : ClasseShow,
+    '#/equipments/'        : Equipments,
+    '#/equipments/:id/'    : EquipmentShow,
     '#/races/'             : Races,
     '#/races/:id/'         : RaceShow
 }
 
 const router = async () => {
-    // const path = location.hash;
-    
-    // if (path.startsWith('#/articles/') && path.split('/').length >= 4) {
-    //     ArticleShow();
-    //     return;
-    // }
+    const hash = location.hash || '#/';
+    let view = routes[hash];
 
-    // const view = routes[path];
-    // if (view) {
-    //     view();
-    // } 
+    // Pour passer de '#/equipments/1/' à '#/equipments/:id/'
+    if (!view) {
+        const urlSep = hash.split('/');
+
+        if (urlSep.length >= 3 && urlSep[2] !== "") {
+            const resource = urlSep[1];
+            const newRoute = `#/${resource}/:id/`; 
+            view = routes[newRoute];
+        }
+    }
+    if (view) {
+        view();
+    } 
 }
 
 window.addEventListener('load', router);
