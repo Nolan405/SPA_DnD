@@ -94,12 +94,12 @@ export async function getData(url, render) {
         if (!response.ok) {
             throw new Error(response.status);
         }
+        const texte = await response.text();
         try {
-            finalData = await response.json();
-            console.log(finalData)
+            finalData = JSON.parse(texte);
             render(finalData);
         } catch (e) {
-            render(finalData);
+            render(texte);
         }
     }
 }
