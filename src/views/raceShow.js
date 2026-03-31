@@ -1,5 +1,6 @@
 import { Race } from "../models/Race.js";
 
+
 export async function render_single_race(data) {
     const app = document.querySelector('#app');
     app.innerHTML = "";

@@ -1,5 +1,6 @@
 import { Classe } from "../models/Classe.js";
 
+
 export async function render_single_classe(data) {
     const app = document.querySelector('#app');
     app.innerHTML = "";

@@ -1,5 +1,6 @@
 import { Equipment } from "../models/Equipment.js";
 
+
 export async function render_single_equipment(data) {
     const app = document.querySelector('#app');
     app.innerHTML = "";

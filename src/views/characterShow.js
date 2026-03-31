@@ -1,5 +1,6 @@
 import { Character } from '../models/Character.js';
 
+
 export async function render_single_character(data) {
     const app = document.querySelector('#app');
     app.innerHTML = "";
