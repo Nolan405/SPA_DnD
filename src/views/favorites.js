@@ -2,6 +2,7 @@ import { Character } from '../models/Character.js';
 import { Classe } from '../models/Classe.js';
 import { Equipment } from '../models/Equipment.js';
 import { Race } from '../models/Race.js';
+import {researchField} from '../utils/research.js';
 
 export async function render_favorites(data) {
     console.log("test")
@@ -15,6 +16,8 @@ export async function render_favorites(data) {
 
     console.log(data);
 
+    researchField(app)
+    
     const ul = document.createElement('ul');
     ul.className = "races-grid";
 

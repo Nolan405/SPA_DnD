@@ -1,4 +1,5 @@
 import { Classe } from "../models/Classe.js";
+import {researchField} from '../utils/research.js';
 
 export async function render_classes(data) {
     const app = document.querySelector('#app');
@@ -8,6 +9,8 @@ export async function render_classes(data) {
     title.textContent = "Choisir une Classe";
     title.className = "dnd-title";
     app.appendChild(title);
+
+    researchField(app)
 
     const ul = document.createElement('ul');
     ul.className = "races-grid";
