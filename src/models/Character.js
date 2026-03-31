@@ -125,13 +125,33 @@ export class Character {
         p1.textContent = "Niveau : " + this.level; 
         p1.classList.add('dnd-text');
 
+        const div2 = document.createElement("div");
+        div2.classList.add("card-header");
         const p2 = document.createElement('p');
         p2.textContent = "Race : " + this.idRace; 
         p2.classList.add('dnd-text');
+        const a2 = document.createElement('a');
+        a2.href = `#/races/${this.idRace}/`;
+        a2.innerHTML = `
+            <span class="scroll-icon">Détail</span>
+        `;
+        a2.style.color = "#930c10";   
+        div2.appendChild(p2)
+        div2.appendChild(a2)
 
+        const div3 = document.createElement("div");
+        div3.classList.add("card-header");
         const p3 = document.createElement('p');
         p3.textContent = "Classe : " + this.idClasse; 
         p3.classList.add('dnd-text');
+        const a3 = document.createElement('a');
+        a3.href = `#/classes/${this.idClasse}/`;
+        a3.innerHTML = `
+            <span class="scroll-icon">Détail</span>
+        `;
+        a3.style.color = "#930c10";   
+        div3.appendChild(p3)
+        div3.appendChild(a3)
 
         const p4 = document.createElement('p');
         p4.textContent = "Équipements : " + this.lstIdEquipments; 
@@ -148,8 +168,8 @@ export class Character {
 
         section.appendChild(div);
         section.appendChild(p1);
-        section.appendChild(p2);
-        section.appendChild(p3);
+        section.appendChild(div2);
+        section.appendChild(div3);
         section.appendChild(p4);
         section.appendChild(p5);
         section.appendChild(table);

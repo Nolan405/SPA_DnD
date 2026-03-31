@@ -101,6 +101,7 @@ nav a.active::after {
 
 /* Texte principal avec une lettrine (optionnel) */
 .dnd-text {
+    text-decoration: none;
     line-height: 1.6;
     font-size: 1.1rem;
     color: #e0d0b0; /* Un blanc cassé plus doux que le blanc pur */
@@ -159,7 +160,6 @@ nav a.active::after {
 .scroll-icon {
     display: block;
     font-size: 1.5rem;
-    margin-bottom: 10px;
     filter: sepia(1) saturate(2);
 }
 
@@ -297,4 +297,13 @@ button.dnd-button.btn-remove:disabled,
     background: #1a1512 !important;
     color: #555555 !important;
     box-shadow: none !important;
+}
+
+.card-header {
+    display: flex;         /* Active le mode Flexbox */
+    align-items: center;   /* Centre les éléments verticalement */
+    gap: 12px;             /* Espace de 12px entre chaque élément (icône, texte, etc.) */
+    
+    /* Optionnel : pour que les éléments respirent un peu */
+    padding: 8px;
 }
