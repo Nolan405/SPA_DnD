@@ -1,0 +1,623 @@
+{
+  "title": "Donjons et Dragons",
+  "introduction": "Donjons et Dragons (en anglais : Dungeons & Dragons), souvent abrégé en D&D, DnD ou AD&D, est le tout premier jeu de rôle sur table de genre médiéval-fantastique. Le jeu a été créé en 1974 par les Américains Gary Gygax et Dave Arneson. Gygax a aussi fondé la première société d'édition de jeux de rôle, Tactical Studies Rules (plus connue sous le sigle de TSR) pour éditer son jeu.",
+  "races": [
+    {
+      "id": 1,
+      "name": "Elfe",
+      "description": "Un peuple magique d'une grâce surnaturelle, vivant dans le monde mais n'en faisant pas tout à fait partie."
+    },
+    {
+      "id": 2,
+      "name": "Nain",
+      "description": "Audacieux et robustes, les nains sont connus comme des guerriers habiles, des mineurs et des travailleurs de la pierre."
+    },
+    {
+      "id": 3,
+      "name": "Humain",
+      "description": "Les plus adaptables et ambitieux des peuples communs."
+    },
+    {
+      "id": 4,
+      "name": "Demi-Orc",
+      "description": "Dotés d'une force brute et d'une endurance exceptionnelle, souvent perçus comme sauvages."
+    },
+    {
+      "id": 5,
+      "name": "Halfelin",
+      "description": "Petits, agiles et chanceux, ils apprécient le confort du foyer autant que l'aventure."
+    },
+    {
+      "id": 6,
+      "name": "Drakéide",
+      "description": "De fiers guerriers à l'allure draconique, crachant le feu, la glace ou l'acide."
+    }
+  ],
+  "classes": [
+    {
+      "id": 10,
+      "name": "Guerrier",
+      "hit_die": "d10",
+      "primary_ability": "Force ou Dextérité"
+    },
+    {
+      "id": 11,
+      "name": "Magicien",
+      "hit_die": "d6",
+      "primary_ability": "Intelligence"
+    },
+    {
+      "id": 12,
+      "name": "Voleur",
+      "hit_die": "d8",
+      "primary_ability": "Dextérité"
+    },
+    {
+      "id": 13,
+      "name": "Clerc",
+      "hit_die": "d8",
+      "primary_ability": "Sagesse"
+    },
+    {
+      "id": 14,
+      "name": "Paladin",
+      "hit_die": "d10",
+      "primary_ability": "Force et Charisme"
+    },
+    {
+      "id": 15,
+      "name": "Barde",
+      "hit_die": "d8",
+      "primary_ability": "Charisme"
+    }
+  ],
+  "equipments": [
+    {
+      "id": 100,
+      "name": "Épée longue",
+      "type": "Arme",
+      "damage": "1d8 tranchant",
+      "weight": 3
+    },
+    {
+      "id": 101,
+      "name": "Arc long",
+      "type": "Arme",
+      "damage": "1d8 perforant",
+      "weight": 2
+    },
+    {
+      "id": 102,
+      "name": "Bâton magique",
+      "type": "Arme",
+      "damage": "1d6 contondant",
+      "weight": 4
+    },
+    {
+      "id": 103,
+      "name": "Cotte de mailles",
+      "type": "Armure",
+      "ac": 16,
+      "weight": 55
+    },
+    {
+      "id": 104,
+      "name": "Potion de soins",
+      "type": "Consommable",
+      "effect": "Restaure 2d4+2 PV",
+      "weight": 0.5
+    },
+    {
+      "id": 105,
+      "name": "Dague empoisonnée",
+      "type": "Arme",
+      "damage": "1d4 perforant + poison",
+      "weight": 1
+    },
+    {
+      "id": 106,
+      "name": "Bouclier en bois",
+      "type": "Armure",
+      "ac": 2,
+      "weight": 6
+    },
+    {
+      "id": 107,
+      "name": "Grimoire de sorts",
+      "type": "Accessoire",
+      "effect": "Contient les sorts connus",
+      "weight": 3
+    },
+    {
+      "id": 108,
+      "name": "Luth elfique",
+      "type": "Instrument",
+      "effect": "+2 en Représentation",
+      "weight": 2
+    },
+    {
+      "id": 109,
+      "name": "Armure de cuir clouté",
+      "type": "Armure",
+      "ac": 12,
+      "weight": 13
+    }
+  ],
+  "characters": [
+    {
+      "id": 1,
+      "name": "Aelar",
+      "level": 5,
+      "race_id": 1,
+      "class_id": 11,
+      "equipment_ids": [102, 104, 107],
+      "stats": {
+        "str": 8,
+        "dex": 14,
+        "con": 12,
+        "int": 18,
+        "wis": 10,
+        "cha": 12
+      },
+      "rating": 4.5,
+      "votes": 12,
+      "image": "https://api.dicebear.com/7.x/adventurer/svg?seed=Aelar"
+    },
+    {
+      "id": 2,
+      "name": "Thorin",
+      "level": 6,
+      "race_id": 2,
+      "class_id": 10,
+      "equipment_ids": [100, 103, 104, 106],
+      "stats": {
+        "str": 18,
+        "dex": 10,
+        "con": 16,
+        "int": 8,
+        "wis": 12,
+        "cha": 10
+      },
+      "rating": 4.8,
+      "votes": 34,
+      "image": "https://api.dicebear.com/7.x/adventurer/svg?seed=Thorin"
+    },
+    {
+      "id": 3,
+      "name": "Elara",
+      "level": 4,
+      "race_id": 3,
+      "class_id": 12,
+      "equipment_ids": [101, 104, 105],
+      "stats": {
+        "str": 10,
+        "dex": 18,
+        "con": 12,
+        "int": 14,
+        "wis": 10,
+        "cha": 16
+      },
+      "rating": 3.9,
+      "votes": 8,
+      "image": "https://api.dicebear.com/7.x/adventurer/svg?seed=Elara"
+    },
+    {
+      "id": 4,
+      "name": "Garrick",
+      "level": 3,
+      "race_id": 3,
+      "class_id": 13,
+      "equipment_ids": [100, 103, 106],
+      "stats": {
+        "str": 14,
+        "dex": 10,
+        "con": 14,
+        "int": 10,
+        "wis": 16,
+        "cha": 12
+      },
+      "rating": 4.2,
+      "votes": 5,
+      "image": "https://api.dicebear.com/7.x/adventurer/svg?seed=Garrick"
+    },
+    {
+      "id": 5,
+      "name": "Faen",
+      "level": 7,
+      "race_id": 1,
+      "class_id": 12,
+      "equipment_ids": [101, 104, 109],
+      "stats": {
+        "str": 12,
+        "dex": 20,
+        "con": 10,
+        "int": 12,
+        "wis": 14,
+        "cha": 10
+      },
+      "rating": 0,
+      "votes": 0,
+      "image": "https://api.dicebear.com/7.x/adventurer/svg?seed=Faen"
+    },
+    {
+      "id": 6,
+      "name": "Krunk",
+      "level": 8,
+      "race_id": 4,
+      "class_id": 10,
+      "equipment_ids": [100, 103],
+      "stats": {
+        "str": 20,
+        "dex": 12,
+        "con": 18,
+        "int": 6,
+        "wis": 8,
+        "cha": 8
+      },
+      "rating": 4.1,
+      "votes": 42,
+      "image": "https://api.dicebear.com/7.x/adventurer/svg?seed=Krunk"
+    },
+    {
+      "id": 7,
+      "name": "Merric",
+      "level": 2,
+      "race_id": 5,
+      "class_id": 15,
+      "equipment_ids": [105, 108, 109],
+      "stats": {
+        "str": 8,
+        "dex": 16,
+        "con": 12,
+        "int": 10,
+        "wis": 10,
+        "cha": 18
+      },
+      "rating": 4.9,
+      "votes": 15,
+      "image": "https://api.dicebear.com/7.x/adventurer/svg?seed=Merric"
+    },
+    {
+      "id": 8,
+      "name": "Biri",
+      "level": 5,
+      "race_id": 6,
+      "class_id": 14,
+      "equipment_ids": [100, 103, 106, 104],
+      "stats": {
+        "str": 16,
+        "dex": 10,
+        "con": 14,
+        "int": 10,
+        "wis": 12,
+        "cha": 16
+      },
+      "rating": 3.5,
+      "votes": 3,
+      "image": "https://api.dicebear.com/7.x/adventurer/svg?seed=Biri"
+    },
+    {
+      "id": 9,
+      "name": "Syllin",
+      "level": 12,
+      "race_id": 1,
+      "class_id": 11,
+      "equipment_ids": [102, 107, 104, 104],
+      "stats": {
+        "str": 8,
+        "dex": 16,
+        "con": 14,
+        "int": 20,
+        "wis": 12,
+        "cha": 10
+      },
+      "rating": 4.7,
+      "votes": 89,
+      "image": "https://api.dicebear.com/7.x/adventurer/svg?seed=Syllin"
+    },
+    {
+      "id": 10,
+      "name": "Darrak",
+      "level": 4,
+      "race_id": 2,
+      "class_id": 13,
+      "equipment_ids": [100, 103, 106],
+      "stats": {
+        "str": 14,
+        "dex": 8,
+        "con": 16,
+        "int": 10,
+        "wis": 18,
+        "cha": 10
+      },
+      "rating": 4.0,
+      "votes": 11,
+      "image": "https://api.dicebear.com/7.x/adventurer/svg?seed=Darrak"
+    },
+    {
+      "id": 11,
+      "name": "Lia",
+      "level": 1,
+      "race_id": 3,
+      "class_id": 12,
+      "equipment_ids": [105, 109],
+      "stats": {
+        "str": 10,
+        "dex": 16,
+        "con": 12,
+        "int": 14,
+        "wis": 10,
+        "cha": 14
+      },
+      "rating": 0,
+      "votes": 0,
+      "image": "https://api.dicebear.com/7.x/adventurer/svg?seed=Lia"
+    },
+    {
+      "id": 12,
+      "name": "Orik",
+      "level": 9,
+      "race_id": 4,
+      "class_id": 14,
+      "equipment_ids": [100, 103, 106],
+      "stats": {
+        "str": 18,
+        "dex": 10,
+        "con": 16,
+        "int": 8,
+        "wis": 12,
+        "cha": 16
+      },
+      "rating": 4.6,
+      "votes": 27,
+      "image": "https://api.dicebear.com/7.x/adventurer/svg?seed=Orik"
+    },
+    {
+      "id": 13,
+      "name": "Cora",
+      "level": 6,
+      "race_id": 5,
+      "class_id": 12,
+      "equipment_ids": [101, 105, 109, 104],
+      "stats": {
+        "str": 8,
+        "dex": 18,
+        "con": 14,
+        "int": 12,
+        "wis": 10,
+        "cha": 14
+      },
+      "rating": 3.8,
+      "votes": 19,
+      "image": "https://api.dicebear.com/7.x/adventurer/svg?seed=Cora"
+    },
+    {
+      "id": 14,
+      "name": "Balasar",
+      "level": 7,
+      "race_id": 6,
+      "class_id": 10,
+      "equipment_ids": [100, 103, 104],
+      "stats": {
+        "str": 18,
+        "dex": 12,
+        "con": 14,
+        "int": 10,
+        "wis": 10,
+        "cha": 14
+      },
+      "rating": 4.3,
+      "votes": 22,
+      "image": "https://api.dicebear.com/7.x/adventurer/svg?seed=Balasar"
+    },
+    {
+      "id": 15,
+      "name": "Ander",
+      "level": 3,
+      "race_id": 3,
+      "class_id": 15,
+      "equipment_ids": [105, 108, 109],
+      "stats": {
+        "str": 10,
+        "dex": 14,
+        "con": 12,
+        "int": 12,
+        "wis": 10,
+        "cha": 16
+      },
+      "rating": 4.1,
+      "votes": 7,
+      "image": "https://api.dicebear.com/7.x/adventurer/svg?seed=Ander"
+    },
+    {
+      "id": 16,
+      "name": "Naivara",
+      "level": 10,
+      "race_id": 1,
+      "class_id": 13,
+      "equipment_ids": [102, 109, 104, 104],
+      "stats": {
+        "str": 8,
+        "dex": 14,
+        "con": 12,
+        "int": 12,
+        "wis": 20,
+        "cha": 14
+      },
+      "rating": 4.9,
+      "votes": 56,
+      "image": "https://api.dicebear.com/7.x/adventurer/svg?seed=Naivara"
+    },
+    {
+      "id": 17,
+      "name": "Eberk",
+      "level": 5,
+      "race_id": 2,
+      "class_id": 10,
+      "equipment_ids": [100, 103, 106, 104],
+      "stats": {
+        "str": 16,
+        "dex": 12,
+        "con": 18,
+        "int": 10,
+        "wis": 10,
+        "cha": 8
+      },
+      "rating": 3.7,
+      "votes": 14,
+      "image": "https://api.dicebear.com/7.x/adventurer/svg?seed=Eberk"
+    },
+    {
+      "id": 18,
+      "name": "Thia",
+      "level": 2,
+      "race_id": 1,
+      "class_id": 11,
+      "equipment_ids": [102, 107],
+      "stats": {
+        "str": 10,
+        "dex": 14,
+        "con": 10,
+        "int": 16,
+        "wis": 12,
+        "cha": 10
+      },
+      "rating": 2.5,
+      "votes": 2,
+      "image": "https://api.dicebear.com/7.x/adventurer/svg?seed=Thia"
+    },
+    {
+      "id": 19,
+      "name": "Ghesh",
+      "level": 8,
+      "race_id": 6,
+      "class_id": 14,
+      "equipment_ids": [100, 103, 106],
+      "stats": {
+        "str": 18,
+        "dex": 10,
+        "con": 14,
+        "int": 10,
+        "wis": 12,
+        "cha": 16
+      },
+      "rating": 4.4,
+      "votes": 31,
+      "image": "https://api.dicebear.com/7.x/adventurer/svg?seed=Ghesh"
+    },
+    {
+      "id": 20,
+      "name": "Vondal",
+      "level": 4,
+      "race_id": 2,
+      "class_id": 12,
+      "equipment_ids": [105, 109, 104],
+      "stats": {
+        "str": 12,
+        "dex": 16,
+        "con": 16,
+        "int": 10,
+        "wis": 10,
+        "cha": 8
+      },
+      "rating": 3.2,
+      "votes": 9,
+      "image": "https://api.dicebear.com/7.x/adventurer/svg?seed=Vondal"
+    },
+    {
+      "id": 21,
+      "name": "Mialee",
+      "level": 15,
+      "race_id": 1,
+      "class_id": 11,
+      "equipment_ids": [102, 107, 104, 104, 104],
+      "stats": {
+        "str": 8,
+        "dex": 16,
+        "con": 14,
+        "int": 20,
+        "wis": 14,
+        "cha": 12
+      },
+      "rating": 5.0,
+      "votes": 120,
+      "image": "https://api.dicebear.com/7.x/adventurer/svg?seed=Mialee"
+    },
+    {
+      "id": 22,
+      "name": "Keth",
+      "level": 1,
+      "race_id": 4,
+      "class_id": 10,
+      "equipment_ids": [100, 109],
+      "stats": {
+        "str": 16,
+        "dex": 14,
+        "con": 14,
+        "int": 8,
+        "wis": 10,
+        "cha": 10
+      },
+      "rating": 0,
+      "votes": 0,
+      "image": "https://api.dicebear.com/7.x/adventurer/svg?seed=Keth"
+    },
+    {
+      "id": 23,
+      "name": "Osborn",
+      "level": 5,
+      "race_id": 5,
+      "class_id": 12,
+      "equipment_ids": [101, 105, 109],
+      "stats": {
+        "str": 10,
+        "dex": 18,
+        "con": 14,
+        "int": 12,
+        "wis": 10,
+        "cha": 12
+      },
+      "rating": 4.0,
+      "votes": 16,
+      "image": "https://api.dicebear.com/7.x/adventurer/svg?seed=Osborn"
+    },
+    {
+      "id": 24,
+      "name": "Peren",
+      "level": 6,
+      "race_id": 1,
+      "class_id": 15,
+      "equipment_ids": [105, 108, 109, 104],
+      "stats": {
+        "str": 10,
+        "dex": 16,
+        "con": 12,
+        "int": 10,
+        "wis": 10,
+        "cha": 18
+      },
+      "rating": 4.5,
+      "votes": 25,
+      "image": "https://api.dicebear.com/7.x/adventurer/svg?seed=Peren"
+    },
+    {
+      "id": 25,
+      "name": "Arveiaturace",
+      "level": 11,
+      "race_id": 6,
+      "class_id": 11,
+      "equipment_ids": [102, 107],
+      "stats": {
+        "str": 14,
+        "dex": 10,
+        "con": 14,
+        "int": 18,
+        "wis": 12,
+        "cha": 14
+      },
+      "rating": 4.8,
+      "votes": 67,
+      "image": "https://api.dicebear.com/7.x/adventurer/svg?seed=Arveiaturace"
+    }
+  ]
+}

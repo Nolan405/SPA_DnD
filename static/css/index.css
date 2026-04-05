@@ -1,0 +1,300 @@
+/* Importation d'une police typée Fantasy */
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&family=Spectral:wght@400;700&display=swap');
+
+:root {
+    --dnd-red: #930c10;
+    --dnd-gold: #c8aa6e;
+    --parchment: #f4e1d2;
+    --deep-black: #1a1a1a;
+}
+
+body {
+    margin: 0;
+    background-color: var(--deep-black);
+    font-family: 'Spectral', serif;
+}
+
+/* Style de la barre de navigation */
+nav {
+    background: linear-gradient(to bottom, #2a2a2a, #1a1a1a);
+    border-bottom: 3px solid var(--dnd-gold);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+nav li {
+    position: relative;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--dnd-gold);
+    font-family: 'MedievalSharp', cursive;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    padding: 5px 10px;
+}
+
+/* Effet au survol */
+nav a:hover {
+    color: #fff;
+    text-shadow: 0 0 8px var(--dnd-red), 0 0 12px var(--dnd-red);
+}
+
+/* Petit indicateur sous le lien actif/survolé */
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 50%;
+    background-color: var(--dnd-red);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+nav a:hover::after {
+    width: 80%;
+}
+
+/* Style pour le lien de la page active */
+nav a.active {
+    color: #fff;
+    text-shadow: 0 0 8px var(--dnd-red);
+}
+
+/* On force l'affichage de la barre rouge pour la classe active */
+nav a.active::after {
+    width: 80%;
+    background-color: var(--dnd-gold); /* On peut changer la couleur pour différencier du survol */
+}
+
+/* Style pour la zone de contenu principale */
+#app {
+    padding: 20px;
+    color: var(--parchment);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Titre avec une bordure décorative */
+.dnd-title {
+    color: var(--dnd-red);
+    font-family: 'MedievalSharp', cursive;
+    font-size: 2.5rem;
+    border-bottom: 2px solid var(--dnd-gold);
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+/* Texte principal avec une lettrine (optionnel) */
+.dnd-text {
+    line-height: 1.6;
+    font-size: 1.1rem;
+    color: #e0d0b0; /* Un blanc cassé plus doux que le blanc pur */
+    max-width: 800px;
+}
+
+/* Conteneur pour simuler un parchemin ou un cadre de grimoire */
+.parchment-container {
+    background: rgba(40, 40, 40, 0.8);
+    padding: 40px;
+    border: 2px solid var(--dnd-gold);
+    border-radius: 5px;
+    box-shadow: inset 0 0 15px rgba(0,0,0,0.5);
+    margin-top: 30px;
+}
+
+/* Grille de mise en page */
+.races-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    list-style: none;
+    padding: 20px 0;
+}
+
+/* Style de chaque carte de race */
+.race-card {
+    background: linear-gradient(135deg, #3a3a3a, #222);
+    border: 1px solid var(--dnd-gold);
+    border-radius: 4px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+.race-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(200, 170, 110, 0.3);
+    border-color: #fff;
+}
+
+/* Style du lien à l'intérieur de la carte */
+.race-card a {
+    display: block;
+    padding: 20px;
+    text-decoration: none;
+    color: var(--dnd-gold);
+    font-family: 'MedievalSharp', cursive;
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+.race-card a:hover {
+    color: #fff;
+}
+
+.scroll-icon {
+    display: block;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    filter: sepia(1) saturate(2);
+}
+
+.back-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: var(--dnd-red);
+    color: white !important; /* Force le blanc pour le contraste */
+    text-decoration: none;
+    font-family: 'MedievalSharp', cursive;
+    border: 1px solid var(--dnd-gold);
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 0px #5a070a; /* Effet de profondeur */
+}
+
+.back-button:hover {
+    background-color: #b01015;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0px #5a070a;
+}
+
+.back-button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0px #5a070a;
+}
+
+/* Container pour aligner les boutons à côté du titre ou en dessous */
+.fav-actions {
+    display: inline-flex;
+    gap: 10px;
+    margin-left: 20px;
+    vertical-align: middle;
+    align-items: center;
+}
+
+/* --- Style de la barre de recherche (Thème DnD) --- */
+.dnd-search-bar {
+    display: block; /* Force le passage à la ligne */
+    width: 100%;
+    max-width: 500px; /* Taille maximale pour ne pas prendre tout l'écran */
+    margin: 20px auto 30px auto; /* Centré avec un espace en haut et en bas */
+    padding: 12px 20px;
+    background-color: rgba(30, 30, 30, 0.9); /* Fond parchemin sombre ou cuir */
+    border: 2px solid var(--dnd-gold); /* Bordure dorée typique */
+    border-radius: 6px;
+    color: var(--parchment); /* Couleur du texte (doré clair/parchemin) */
+    font-family: 'MedievalSharp', cursive; /* Police DnD */
+    font-size: 1.2rem;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8), 0 4px 10px rgba(0, 0, 0, 0.5); /* Effet de profondeur intérieur et ombre portée */
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* Couleur du texte par défaut (placeholder) */
+.dnd-search-bar::placeholder {
+    color: rgba(200, 170, 110, 0.5);
+    font-style: italic;
+}
+
+/* Effet brillant/rouge au focus */
+.dnd-search-bar:focus {
+    border-color: var(--dnd-red);
+    background-color: #111;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.9), 0 0 15px rgba(147, 12, 16, 0.6);
+    transform: translateY(-2px);
+}
+
+/* Style de base des boutons DnD */
+.dnd-button {
+    background: #2c241e; /* Fond sombre cuir */
+    color: var(--dnd-gold);    /* Texte doré */
+    border: 2px solid var(--dnd-gold);
+    padding: 8px 15px;
+    height: 32px;
+    font-family: 'MedievalSharp', cursive, serif; /* Ou ta police actuelle */
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    display: inline-flex;
+    align-items: center;      /* Centre le texte verticalement */
+    justify-content: center;
+    vertical-align: bottom;
+}
+
+/* Bouton Ajouter (Doré) */
+.btn-add {
+    border-color: var(--dnd-gold);
+}
+
+.btn-add:hover {
+    background: var(--dnd-gold);
+    color: #2c241e;
+    box-shadow: 0 0 10px var(--dnd-gold);
+}
+
+/* Bouton Supprimer (Rouge sang) */
+.btn-remove {
+    border-color: var(--dnd-red);
+    color: var(--dnd-red);
+}
+
+.btn-remove:hover {
+    background: var(--dnd-red);
+    color: #ffffff;
+    box-shadow: 0 0 10px var(--dnd-red);
+}
+
+/* Effet quand on clique */
+.dnd-button:active {
+    transform: translateY(2px);
+}
+
+/* Style générique pour un bouton désactivé dans ton thème DnD */
+button.dnd-button.btn-add:disabled, 
+button.dnd-button.btn-remove:disabled,
+.fav-actions button:disabled {
+    background-color: #1a1512 !important;
+    color: #555555 !important;
+    border-color: #444444 !important;
+    cursor: not-allowed !important;
+    opacity: 0.6 !important;
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+/* On s'assure que le hover ne réactive rien */
+.dnd-button:disabled:hover,
+.dnd-button.btn-disabled:hover {
+    background: #1a1512 !important;
+    color: #555555 !important;
+    box-shadow: none !important;
+}
