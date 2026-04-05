@@ -16,12 +16,18 @@ export function research(input) {
     }
 }
 
-export function researchField(app){
+export function researchField(app, onSearch = null, placeholder = "Rechercher"){
     const input = document.createElement("input");
     input.id = "recherche";
     input.className = "dnd-search-bar";
-    input.placeholder = "Rechercher";
+    input.placeholder = placeholder;
     app.appendChild(input);
-    
+
+    if (onSearch) {
+        input.addEventListener('input', () => onSearch(input.value));
+        return input;
+    }
+
     input.addEventListener('keyup', () => research(input));
+    return input;
 }
