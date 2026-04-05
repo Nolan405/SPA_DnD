@@ -1,5 +1,6 @@
 import { Equipment } from "../models/Equipment.js";
-import {researchField} from '../utils/research.js';
+import { researchField } from '../utils/research.js';
+import { renderPaginatedList } from '../utils/pagination.js';
 
 export async function render_equipments(data) {
     const app = document.querySelector('#app');
@@ -10,20 +11,33 @@ export async function render_equipments(data) {
     title.className = "dnd-title";
     app.appendChild(title);
 
-    researchField(app)
-    
-    const ul = document.createElement('ul');
-    ul.className = "races-grid";
+    const listContainer = document.createElement('div');
+    app.appendChild(listContainer);
 
-    data.forEach(element => {
-        const equipment = new Equipment (
-            element.id, 
-            element.name, 
-            element.type, 
-            element.damage,
-            element.weight
-        );
-       equipment.renderGenericCard(ul);
-    });
-    app.appendChild(ul);
+    const renderEquipments = (items) => {
+        listContainer.innerHTML = '';
+        renderPaginatedList(listContainer, items, {
+            pageSize: 8,
+            renderItem: (element, list) => {
+                const equipment = new Equipment (
+                    element.id, 
+                    element.name, 
+                    element.type, 
+                    element.damage,
+                    element.weight
+                );
+               equipment.renderGenericCard(list);
+            }
+        });
+    };
+
+    renderEquipments(data);
+
+    researchField(app, (query) => {
+        const searchTerm = query.trim().toUpperCase();
+        const filteredData = data.filter((element) => {
+            return element.name.toUpperCase().includes(searchTerm);
+        });
+        renderEquipments(filteredData);
+    }, "Rechercher un équipement");
 }

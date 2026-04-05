@@ -74,7 +74,7 @@ export class Character {
         const a = document.createElement('a');
         a.href = `#/characters/${this.id}/`;
         a.innerHTML = `
-            <img src="${this.image}" alt="" width="50">
+            <img src="${this.image}" alt="" width="50" loading="lazy" decoding="async">
             <span class="scroll-icon">📜</span> ${this.name}
         `;
 
