@@ -2,10 +2,10 @@ import { Character } from '../models/Character.js';
 import { Classe } from '../models/Classe.js';
 import { Equipment } from '../models/Equipment.js';
 import { Race } from '../models/Race.js';
-import {researchField} from '../utils/research.js';
+import { researchField } from '../utils/research.js';
+import { renderPaginatedList } from '../utils/pagination.js';
 
 export async function render_favorites(data) {
-    console.log("test")
     const app = document.querySelector('#app');
     app.innerHTML = "";
 
@@ -14,12 +14,7 @@ export async function render_favorites(data) {
     title.className = "dnd-title";
     app.appendChild(title);
 
-    console.log(data);
-
-    researchField(app)
-    
-    const ul = document.createElement('ul');
-    ul.className = "races-grid";
+    const favorites = [];
 
     data["characters"].forEach(element => {
         const character = new Character(
@@ -34,8 +29,14 @@ export async function render_favorites(data) {
             element.votes, 
             element.image
         );
-        if (character.inFavorites()) {    
-            character.renderGenericCard(ul);
+        if (character.inFavorites()) {
+            favorites.push({
+                type: 'character',
+                name: element.name,
+                render(list) {
+                    character.renderGenericCard(list);
+                }
+            });
         }
     });
 
@@ -46,8 +47,14 @@ export async function render_favorites(data) {
             element.hit_die, 
             element.primary_ability
         ); 
-        if (classe.inFavorites()) {    
-            classe.renderGenericCard(ul);
+        if (classe.inFavorites()) {
+            favorites.push({
+                type: 'class',
+                name: element.name,
+                render(list) {
+                    classe.renderGenericCard(list);
+                }
+            });
         }
     });
 
@@ -59,8 +66,14 @@ export async function render_favorites(data) {
             element.damage,
             element.weight
         );
-        if (equipment.inFavorites()) {    
-            equipment.renderGenericCard(ul);
+        if (equipment.inFavorites()) {
+            favorites.push({
+                type: 'equipment',
+                name: element.name,
+                render(list) {
+                    equipment.renderGenericCard(list);
+                }
+            });
         }
     });
 
@@ -70,9 +83,37 @@ export async function render_favorites(data) {
             element.name,
             element.description
         );
-        if (race.inFavorites()) {    
-            race.renderGenericCard(ul);
+        if (race.inFavorites()) {
+            favorites.push({
+                type: 'race',
+                name: element.name,
+                render(list) {
+                    race.renderGenericCard(list);
+                }
+            });
         }
     });
-    app.appendChild(ul);
+
+    const listContainer = document.createElement('div');
+    app.appendChild(listContainer);
+
+    const renderFavorites = (items) => {
+        listContainer.innerHTML = '';
+        renderPaginatedList(listContainer, items, {
+            pageSize: 8,
+            renderItem: (element, list) => {
+                element.render(list);
+            }
+        });
+    };
+
+    renderFavorites(favorites);
+
+    researchField(app, (query) => {
+        const searchTerm = query.trim().toUpperCase();
+        const filteredFavorites = favorites.filter((element) => {
+            return element.name.toUpperCase().includes(searchTerm);
+        });
+        renderFavorites(filteredFavorites);
+    }, "Rechercher un favori");
 }
